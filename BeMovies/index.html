@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page">
+        <header>
+            <h1 class="title"><span>BE</span>MOVIES</h1>
+            <div class="tab topRight">
+                <a href="#research">
+                    <p>SEARCH</p>
+                </a> 
+                <a href="#latest-movies">
+                    <p>LATEST</p>
+                </a>
+                <a href="#movies-genre">
+                    <p>GENRES</p>
+                </a> 
+                <p class="register">REGISTER</p>
+                <p class="signin">SIGNIN</p>
+            </div>
+        </header>
+
+        <section class="research" id="research">
+            <input type="search" name="input-research-movie" id="input-research-movie" placeholder="movie">
+            <button class="btn-research-movie">&#129122;</button>
+        </section>
+
+        <section class="searched-movies">
+            <p class="research-parag"></p>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                </div>
+                <!-- navigation buttons -->
+                <img class="swiper-button-prev" src="images/previousArrow.png" alt="">
+                <img class="swiper-button-next" src="images/nextArrow.png" alt="">
+            </div>
+        </section>
+
+        <section class="latest-movies"  id="latest-movies">
+            <p>Latest releases</p>
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                </div>
+                <!-- navigation buttons -->
+                <img class="swiper-button-prev" src="images/previousArrow.png" alt="">
+                <img class="swiper-button-next" src="images/nextArrow.png" alt="">
+            </div>
+        </section>
+
+        <!-- Section à changer avec les différents genres disponibles -->
+        <section class="movies-genre" id="movies-genre">
+            <p class="nameSection">Movies by genre</p>
+            <div class="genres">
+            </div>
+
+            <div class="line"></div>
+
+            <div class="movies">
+                <p class="genre-selected"></p>
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    </div>
+                    <!-- navigation buttons -->
+                    <img class="swiper-button-prev" src="images/previousArrow.png" alt="">
+                    <img class="swiper-button-next" src="images/nextArrow.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h1 class="title"><span>BE</span>MOVIES</h1>
+            <div class="tab">
+                <a href="#research">
+                    <p>SEARCH</p>
+                </a> 
+                <a href="#latest-movies">
+                    <p>LATEST</p>
+                </a>
+                <a href="#movies-genre">
+                    <p>GENRES</p>
+                </a> 
+                <p class="register">REGISTER</p>
+                <p class="signin">SIGNIN</p>
+            </div>
+            <p class="copyright">@2023 - All rights reserved</p>
+        </footer>
+
+        <div class="overlay"></div>
+
+        <dialog class="popUpSignIn" id="dialogSignIn">
+            <img class="closePopUpSignIn" src="images/cross.png" alt="">
+            <div class="radio">
+                <input type="radio" name="signup" id="signup">
+                <label class="labelSignUp" for="signup">SIGNUP</label>
+                <input type="radio" name="login" id="login">
+                <label class="labelLogin" for="login">LOGIN</label>
+            </div>
+            <div class="fieldsForAuthentication">
+                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Password">
+            </div>
+            <div class="rememberMe">
+                <input type="checkbox" name="" id="">
+                <p>Remember me</p>
+            </div>
+            <button class="confirmLogin">LOGIN</button>
+            <div class="account-actions">
+                <a href="#">I forgot my paswword</a>
+                <a href="#"><span>Not a member yet ?</span> Sign up</a>
+            </div>
+        </dialog>
+
+
+        <!-- Pop up détails du film -->
+        <dialog id="dialogMovie" class="dialogMovie">
+            <div class="popUpDetailMovie">
+                <img class="closeDialogMovie" src="images/cross.png" alt="Close" />
+                <div class="movieContent">
+                    <img class="imagePopUpMovie" src="" alt="Movie Poster" />
+                    <div class="movieDetails">
+                        <h1 class="movieTitle"></h1>
+                        <h2 class="movieYear"></h2>
+                        <div class="rating">
+                            <img class="rateImage" src="images/rateStar.png" alt="">
+                            <h3 class="note"></h3></div>
+                        <h4 class="movieGenre"></h4>
+                        <p class="movieDescription"></p>
+                        <div class="movieCast">
+                            <p class="cast">CAST: </p>
+                            <p class="actors"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+
+        <!-- Pop up Liste genres-->
+        <dialog id="dialogGenres" class="dialogGenres">
+            <img class="closeDialogGenres" src="images/cross.png" alt="Close" />
+            <div class="popUpGenres">
+            </div>
+        </dialog>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

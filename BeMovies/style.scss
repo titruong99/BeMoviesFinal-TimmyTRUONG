@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+$inriaFamily:"Inria Sans";
+$interfamily:"Inter";
+
+$textColor:white;
+$beColor:#CC0000;
+$mainBackground:#191B20; //background page principale
+$popupBackground:black;//background pop up
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; // scroll pour clic sur search, etc..
+}
+
+a{
+    text-decoration: none;
+}
+
+
+//page web en elle-même
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width:100%;
+    height:100%;
+    background-color:$mainBackground;
+}
+
+
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: #141517;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 73px;
+}
+
+// titre BeMovies en haut à gauche pour le header et en bas à droite pour le footer
+.title{
+    font-family: $inriaFamily;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.16px;
+    color: $textColor;
+    margin-left: 180px;
+    span{
+        color: $beColor;
+    }
+}
+
+// navigation en haut à droite et en bas de page
+.tab{
+    display: flex;
+    flex-direction: row;
+    gap:29px;
+    p{
+        font-family: $inriaFamily;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 16.79px;
+        letter-spacing: 0.03em;
+        color: $textColor;
+        cursor: pointer;
+        padding: 7px 10px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+
+        &:hover{
+            background-color: $beColor;
+        }
+    }
+}
+
+// créer la marge en haut à droite du header
+.topRight{
+    margin-right: 180px;
+}
+
+// barre de recherche
+.research{
+    display: flex;
+    margin-bottom: 61px;
+    input{
+        font-family: $interfamily;
+        font-weight: 400;
+        font-size: 16px;
+        padding-left: 20px;
+        line-height: 19.36px;
+        height: 44px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: none;
+    }
+    button{   
+        width: 44px;
+        height: 44px;
+        font-size: 18px;     
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color: $textColor;
+        background-color: $beColor;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+
+//sections pour films récents et par recherche avec les swiper
+.searched-movies,.latest-movies{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    width: 1075px;
+    height: 380px;
+    margin-bottom: 95px;
+    p{
+        color: $textColor;
+        font-family: $interfamily;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+        margin-left: 30px;
+        margin-bottom: 10px;
+    }
+}
+
+.searched-movies {
+    display: none;
+}
+
+// swiper avec les différentes images
+.swiper {
+    text-align: center;
+    width: 104%;
+    height: 100%;
+    padding-left:15px;
+    padding-right: 15px;
+}
+
+.swiper-slide{
+    position: relative;
+}
+
+.swiper-button-next,.swiper-button-prev{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+}
+
+.swiper-button-next{
+    right: 0%;
+}
+
+.swiper-button-prev{
+    left: 0%;
+}
+
+.movieImage{
+    width: 234px;
+    height: 351px;
+}
+
+
+//hover sur l'image
+.hoverImage{
+    opacity: 0;
+    position: absolute;
+    top: -1%;
+    left: 0;
+    transform: translateX(7.2%);
+    width: 238px;
+    height: 355px;
+    background: rgba(0, 0, 0, 0.9);
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.hoverImageContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 23px;
+    width:100%;
+    height:100%;
+    font-family: $interfamily;
+    color: $textColor;
+    h1,h2{
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24.2px;
+        
+    }
+
+    h3{
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16.94px; 
+    }
+
+    img{
+        width: 35px;
+        height: 34px;
+        margin-bottom: 4px;
+    }
+
+    h4{
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38.73px;
+        color:$beColor
+    }
+}
+
+//section par genre de film
+.movies-genre{
+    margin-bottom: 30px;
+    width: 1075px;
+    height: 519px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 109px;
+    p{
+        color: $textColor;
+        font-family: $interfamily;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+    }
+}
+
+.nameSection{
+    margin-bottom: 46px;
+}
+
+
+/* ---!!! Antoine : petite modif swiper des genres début !!!--- */
+
+.genres{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 595px;
+    margin-bottom: 26px;
+    width: 600px;
+    height: 35px;
+}
+
+.swiper-container-genres {
+    width: 100%;
+    height: 100%;
+    /* margin: 20px auto; */
+    padding-bottom: 26px;
+    position: relative;
+}
+
+.swiper-container-genres .swiper-wrapper-genres {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container-genres .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* padding: 10px; */
+}
+
+.line{
+    border-bottom: 1px solid $textColor;
+    width:595px;
+    margin-bottom: 28px;
+}
+
+.movies{
+    width: 100%;
+    p{
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+}
+
+.genre{
+    font-family: $interfamily;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    &:hover{
+        background-color: $beColor;
+        cursor: pointer;
+    }
+}
+
+.genre-chosen{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    background-color: $beColor;
+    
+}
+
+//section footer
+footer{
+    width: 100%;
+    height: 186px;
+    background-color: #141517;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copyright{
+    font-family:$inriaFamily;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16.79px;
+    color:#B8B8B8;
+    margin-right: 180px;
+}
+
+// pop up sign in quand click sur register ou signin
+.popUpSignIn {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 410px;
+    height: 608px;
+    background-color: $popupBackground;
+    z-index: 20;
+    color: $textColor;
+    border: none;
+}
+
+.closePopUpSignIn{
+    margin-top: 11px;
+    margin-left: 14px;
+    margin-bottom: 39px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 54px;
+
+    input{
+        display: none;
+    }
+
+    label{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family:$inriaFamily;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28.78px;
+        letter-spacing: 0.03em;
+        width: 144px;
+        height: 54px;
+        cursor: pointer;
+    }
+}
+
+
+.labelSignUp{
+    border-top: 1px solid $textColor;
+    border-left: 1px solid $textColor;
+    border-bottom: 1px solid $textColor;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.labelLogin{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: $beColor;
+}
+
+.fieldsForAuthentication{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 22px;
+    input{
+        padding-left: 20px;
+        width: 288px;
+        height:44px;
+        border-radius: 8px;
+        border: none;
+        font-family: $interfamily;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.rememberMe{
+    display: flex;
+    flex-direction: row;
+    margin-left: 61px;
+    margin-bottom: 46px;
+    column-gap: 9px;
+
+    input{
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    p{
+        font-family: $interfamily;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+    }
+}
+
+.confirmLogin{
+    width: 288px;
+    height:47px;
+    background-color: $beColor;
+    border: none;
+    border-radius: 8px;
+    color: $textColor;
+    align-items: center;
+    margin-left: 61px;
+    margin-bottom: 30px;
+    font-family: $inriaFamily;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.98px;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+}
+
+.account-actions{
+    display: flex;
+    flex-direction:column ;
+    margin-left: 63px;
+    gap: 19px;
+    color: $beColor;
+
+    a{
+        font-family: $interfamily;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19.36px;
+        color: $beColor;
+        cursor: pointer;
+    }
+    
+    span{
+        color: $textColor;
+        cursor: default;
+    }
+}
+
+//pop up quand click sur film
+.dialogMovie{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 742px;
+    height: 526px;
+    z-index: 20;
+    background-color: $popupBackground;
+}
+
+.closeDialogMovie,.closeDialogGenres {
+    width: 16px;
+    height: 16px;
+    margin-top: 11px;
+    margin-left:12px ;
+    cursor: pointer;
+}
+
+.movieContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 58px;
+    margin-top: 40px;
+}
+
+.imagePopUpMovie {
+    width: 234px;
+    height: 351px;
+    border: 1px solid white;
+}
+
+.movieDetails {
+    width: 272px;
+    height: 100%;
+}
+
+.movieTitle {
+    font-family: $inriaFamily;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23.98px;
+    letter-spacing: 0.03em;
+    color: $beColor;
+}
+
+.movieYear, .movieGenre, .cast,.actors{
+    font-family: $inriaFamily;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.79px;
+    letter-spacing: 0.03em;
+    color: $textColor;
+}
+
+.movieCast{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+}
+
+.actors{
+    font-weight: 400;
+}
+
+.movieYear{
+    margin-bottom: 11px;
+}
+
+.movieGenre{
+    margin-bottom: 14px;
+}
+
+.rating{
+    display: flex;
+    column-gap: 3px;
+    color: $textColor;
+    margin-bottom: 12px;
+
+    img{
+        width: 21px;
+        height: 21px;
+    }
+
+    h3{
+        font-size: 21px;
+        color: $beColor;
+    }
+}
+
+.movieDescription{
+    font-family: $inriaFamily;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    color: $textColor;
+    margin-bottom:29px;
+}
+
+//fond noir lors de l'apparition des pop up
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 10;
+}
+
+.imageNotLoaded{
+    margin-left: 20px;
+    width: 234px;
+    height: 351px;
+    display: flex;
+    align-items: center;
+    background-color: #141517;
+    color: #888;
+
+    p{
+        margin-left: 55px;
+    }
+}
+
+.dialogGenres{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    z-index: 20;
+    background-color: $popupBackground;
+
+    p{
+        color: $textColor;
+    }
+}
+
+.popUpGenres{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
